@@ -45,7 +45,7 @@ function App() {
       
       <div className='heading-top'>
       <h1 >Pokemon Team Tester</h1>
-      <img src='../src/assets/1.png' style={{height:"50px"}} />
+      <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png" style={{height:"63px"}} />
       </div>
 
       <div className='second_text'>
