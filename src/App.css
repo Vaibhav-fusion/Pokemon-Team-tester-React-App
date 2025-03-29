@@ -1,0 +1,533 @@
+
+@font-face {
+  font-family: "cool";
+  src: url('assets/coolvetica/coolvetica.otf') format("opentype");
+}
+@font-face {
+  font-family: "coolI";
+  src: url('assets/coolvetica/Coolvetica_italic.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "coolC";
+  src: url('assets/coolvetica/CoolveticaCram.otf') format("opentype");
+}
+@font-face {
+  font-family: "coolL";
+  src: url('assets/coolvetica/CoolveticaCond.otf') format("opentype");
+}
+@font-face {
+  font-family: "coolB";
+  src: url('assets/coolvetica/CoolveticaComp.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nVivU.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures text remains visible during load */
+}
+
+
+.each-card p[style*="Weak to:"] {
+  color: #e74c3c; /* Red for weaknesses */
+  font-weight: bold;
+}
+
+.each-card p[style*="Resist against:"] {
+  color: #2ecc71; /* Green for resistances */
+  font-weight: bold;
+}
+
+.each-card p[style*="Immune to:"] {
+  color: #9b59b6; /* Purple for immunities */
+  font-weight: bold;
+}
+
+.each-card p[style*="4X Weak to:"] {
+  color: #c0392b; /* Dark red for 4x weaknesses */
+  font-weight: bold;
+}
+
+.each-card p[style*="0.25X resist against:"] {
+  color: #27ae60; /* Dark green for 0.25x resists */
+  font-weight: bold;
+}
+
+/* Type-colored spans within effectiveness info - NEW */
+.each-card .type-weakness { color: #e74c3c; }
+.each-card .type-resistance { color: #2ecc71; }
+.each-card .type-immunity { color: #9b59b6; }
+.each-card .type-4xweak { color: #c0392b; }
+.each-card .type-025resist { color: #27ae60; }
+.each-card span[class*="type-"] {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 2px;
+  border-radius: 15px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Specific type colors */
+.each-card .type-normal { background-color: #A8A878; color: white; }
+.each-card .type-fire { background-color: #F08030; color: white; }
+.each-card .type-water { background-color: #6890F0; color: white; }
+.each-card .type-grass { background-color: #78C850; color: white; }
+.each-card .type-electric { background-color: #F8D030; color: #333; }
+.each-card .type-ice { background-color: #98D8D8; color: #333; }
+.each-card .type-fighting { background-color: #C03028; color: white; }
+.each-card .type-poison { background-color: #A040A0; color: white; }
+.each-card .type-ground { background-color: #E0C068; color: #333; }
+.each-card .type-flying { background-color: #A890F0; color: white; }
+.each-card .type-psychic { background-color: #F85888; color: white; }
+.each-card .type-bug { background-color: #A8B820; color: white; }
+.each-card .type-rock { background-color: #B8A038; color: white; }
+.each-card .type-ghost { background-color: #705898; color: white; }
+.each-card .type-dragon { background-color: #7038F8; color: white; }
+.each-card .type-dark { background-color: #705848; color: white; }
+.each-card .type-steel { background-color: #B8B8D0; color: #333; }
+.each-card .type-fairy { background-color: #EE99AC; color: #333; }
+
+body{
+  font-family: "cool",sans-serif;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  
+  
+
+}
+
+input::placeholder {
+font-family: 'coolI', sans-serif; 
+font-size: 14px; 
+}
+
+/* input css thingy */
+input {
+font-family: 'cool', sans-serif; 
+}
+
+input {
+  width: 100%;
+  max-width: 300px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+input:hover {
+  border-color: #888;
+}
+
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* button css thingy */
+button {
+font-family: 'cool', cursive;
+font-size: 12px;
+padding: 10px 20px;
+margin: 5px;
+border: none;
+border-radius: 5px;
+background-color: #ffcb05; /* Pokémon yellow */
+color: #2a75bb; /* Pokémon blue */
+text-transform: uppercase;
+cursor: pointer;
+box-shadow: 
+  0 3px 0 #c7a008,
+  0 4px 4px rgba(0,0,0,0.2);
+transition: all 0.1s;
+}
+
+button:hover {
+background-color: #ffde59;
+transform: translateY(-2px);
+box-shadow: 
+  0 5px 0 #c7a008,
+  0 6px 6px rgba(0,0,0,0.2);
+}
+
+button:active {
+transform: translateY(2px);
+box-shadow: 
+  0 1px 0 #c7a008,
+  0 2px 2px rgba(0,0,0,0.2);
+}
+
+/* Shiny toggle special style */
+button:nth-last-child(1) {
+background-color: #ff3e3e;
+color: white;
+box-shadow: 
+  0 3px 0 #cc0000,
+  0 4px 4px rgba(0,0,0,0.2);
+}
+
+button:nth-last-child(1):hover {
+background-color: #ff6b6b;
+}
+
+.main-container{
+  padding: 25px;
+  background: linear-gradient(-45deg, #ffacac, #99d5f4);
+background-size: 200% 200%;
+animation: gradientBG 8s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* heading */
+.heading-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  background: linear-gradient(135deg, #3aa0ff 0%, #6c3ca6 100%);
+  border-bottom: 4px solid #c9a100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+.heading-top h1{
+  font-family: "coolB",sans-serif;
+  font-size: 60px;
+  text-shadow: 
+  1px 1px 2 #2382ff,
+  -1px -1px 0 #3c5aa6,
+  1px -1px 0 #3c5aa6,
+  -1px 1px 0 #3c5aa6,
+  1px 1px 0 #3c5aa6;
+letter-spacing: 2px;
+margin: 0;
+
+}
+
+.heading-top img {
+  filter: drop-shadow(0 0 5px rgba(84, 5, 255, 0.7));
+  transition: transform 0.3s ease;
+}
+
+.heading-top img:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 15px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  /* gap: 80px; */
+}
+
+/* card of pokemon   */
+.all-card-contaier {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px; /* Adjust based on your preferred max width */
+  margin: 0 auto;
+  
+}
+
+.each-card {
+  min-width: 250px; /* Minimum card width */
+  /* box-sizing: border-box; */
+  
+  /* Rest of your existing card styles */
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #ffcb05;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 5px;
+}
+
+.each-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.each-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0 auto 15px;
+}
+.each-card p:first-of-type {
+font-family: 'Press Start 2P', cursive;
+font-size: 18px;
+color: #3c5aa6;
+margin-bottom: 5px;
+}
+
+
+
+
+.all-type-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columns for type badges */
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.all-type-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out; /* Changed from 5s to 0.3s for faster response */
+  transform-origin: center; /* Ensures scaling happens from center */
+  margin-left:5px ;
+  margin-right: 5px;
+}
+
+/* Fixed selector - changed from .all-card-contaier to .all-type-container */
+.all-type-container > div>h2:hover {
+  transform: scale(1.2);
+  z-index: 10; /* Brings hovered item above others */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Added shadow for better depth */
+}
+
+.type-badge.type-normal { background-color: #A8A878; }
+.type-badge.type-fire { background-color: #F08030; }
+.type-badge.type-water { background-color: #6890F0; }
+.type-badge.type-grass { background-color: #78C850; }
+.type-badge.type-electric { background-color: #F8D030; color: #333; }
+.type-badge.type-ice { background-color: #98D8D8; color: #333; }
+.type-badge.type-fighting { background-color: #C03028; }
+.type-badge.type-poison { background-color: #A040A0; }
+.type-badge.type-ground { background-color: #E0C068; color: #333; }
+.type-badge.type-flying { background-color: #A890F0; }
+.type-badge.type-psychic { background-color: #F85888; }
+.type-badge.type-bug { background-color: #A8B820; }
+.type-badge.type-rock { background-color: #B8A038; }
+.type-badge.type-ghost { background-color: #705898; }
+.type-badge.type-dragon { background-color: #7038F8; }
+.type-badge.type-dark { background-color: #705848; }
+.type-badge.type-steel { background-color: #B8B8D0; color: #333; }
+.type-badge.type-fairy { background-color: #EE99AC; color: #333; }
+
+.all-type-container h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-align: center;
+  width: 100%;
+  transition: all 0.3s ease-in-out; 
+}
+
+.all-type-container p {
+  font-family: 'cool', sans-serif;
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.heading-count {
+  text-align: center;
+  margin: 20px 0;
+  font-family: 'coolB', sans-serif;
+  letter-spacing: 3px;
+
+}
+
+.heading-count h1 {
+  color: #3c5aa6; 
+  font-size: 24px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-size: 50px;
+}
+
+.heading-count p {
+  font-family: 'Press Start 2P';
+  color: #555;
+  font-size: 12px;
+  letter-spacing: 0px;
+}
+
+.positive-count {
+  color: #e74c3c; 
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.negative-count {
+  color: #2ecc71; 
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+
+.heading-count p::before {
+  content: "→";
+  margin: 0 5px;
+  color: #888;
+}
+
+.heading-count p::after {
+  content: "→";
+  margin: 0 5px;
+  color: #888;
+}
+.heading-count{
+  text-shadow: #333;
+}
+
+
+/* Summary box container */
+.summary-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Each summary paragraph */
+.summary-box p {
+  margin: 12px 0;
+  font-family: 'cool', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  /* border-radius: ; */
+}
+
+/* Perfect team message */
+.summary-box .perfect-team {
+  color: #ffcb05; /* Pokémon yellow */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Ensure type badges inherit your existing styles */
+.summary-box .type-badge {
+  display: inline-block;
+  margin: 0 2px;
+  border-radius: 10px;
+  padding: 4px 4px ;
+  font-family: 'Press start 2P';
+  font-size: 10px;
+  transition: all 0.2s ease-in-out;
+  /* Your existing type-badge styles will apply automatically */
+}
+
+.summary-box .type-badge:hover {
+  transform: scale(1.1); /* 10% larger on hover */
+  z-index: 10; /* Ensures hovered badge appears above others */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2), /* Base shadow */
+    0 6px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow for depth */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Additional glow effect */
+}
+
+.second_text{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom:30px ;
+  text-shadow: #555;
+}
+.second_text h2 {
+  color:#007bff;
+  text-shadow:1px 1px 1px #ffb452 ;
+  font-family: "coolB";
+  letter-spacing: 2px;
+  font-size: 35px;
+  color: #3c5aa6; 
+  font-size: 24px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  font-size: 50px;
+  transition: ease-in-out 0.4s;
+}
+
+.second_text h2:hover{
+  transform: scale(1.1);
+
+}
+
+.footerr {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #3aa0ff 0%, #6c3ca6 100%);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  border-top: 3px solid #ffcb05;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: pulse-footer 3s infinite;
+}
+
+@keyframes pulse-footer {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+/* For better mobile visibility */
+@media (max-width: 768px) {
+  .footerr {
+    font-size: 8px;
+    padding: 8px 10px;
+  }
+}
